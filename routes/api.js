@@ -19,6 +19,14 @@ router.get('/quests/all', (req, res) => {
 	});
 });
 
+router.post('/quests/create', (req, res) => {
+	if (res.body) {
+		db.quests.create(res.body).then(data => {
+			console.log('create quest');
+		});
+	}
+});
+
 
 router.post('/login', (req, res) => {
 	res.type('json');   
