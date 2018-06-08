@@ -15,7 +15,7 @@ router.get('/admin', function(req, res, next) {
 router.get('/quests/all', (req, res) => {
 	db.quests.readAllEntries().then((data) => {
 		console.log(data);
-		res.send({});
+		res.jsonp(data);
 	});
 });
 
