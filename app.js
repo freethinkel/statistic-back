@@ -38,13 +38,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-db.init();
-db.quests.create({
-  name: 'test'
-  , type: 'test'
-  , links: ['vk.com', 'vk.com']
-  ,	description: 'test'
-  ,	solution: 'test'
-});
-
 module.exports = app;
