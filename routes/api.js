@@ -20,8 +20,10 @@ router.get('/quests/all', (req, res) => {
 });
 
 router.post('/quests/create', (req, res) => {
-	if (res.body) {
-		db.quests.create(res.body).then(data => {
+	res.type('json');   
+	console.log(req.body);
+	if (req.body) {
+		db.quests.create(req.body).then(data => {
 			console.log('create quest');
 		});
 	}
