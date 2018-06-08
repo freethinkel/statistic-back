@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var db = require('./model/index');
 
 var app = express();
 
@@ -35,6 +36,15 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+db.init();
+db.quests.create({
+  name: 'test'
+  , type: 'test'
+  , links: ['vk.com', 'vk.com']
+  ,	description: 'test'
+  ,	solution: 'test'
 });
 
 module.exports = app;

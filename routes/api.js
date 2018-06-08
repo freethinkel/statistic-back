@@ -1,10 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../model/index');
+
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  
+router.get('/admin', function(req, res, next) { 
+	
+
+
+	
+	res.send({});
+
 });
 
 
