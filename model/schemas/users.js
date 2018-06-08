@@ -10,13 +10,8 @@ module.exports = function (mongo) {
 
 
   return mongo.Schema({
-    email: String
-    , phoneNum: String
-    , name: String
+    firstName: String
     , lastName: String
-    , surname: String
-    , category: String
-    , about: String
-    , quizResults: [answerSchema]
+    , group: String
   })
 }

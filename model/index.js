@@ -8,17 +8,12 @@ const
     }
   , schemas = {
       quests: require('./schemas/quests')(mongo)
-      , qsnSch: require('./schemas/question')(mongo)
-      , usrSch: require('./schemas/user')(mongo)
-      , opsSch: require('./schemas/options')(mongo)
+      ,users: require('./schemas/users')(mongo)
     }
   , methods = {
       init: initConnection
       , quests: new CRUD(mongo, schemas.quests, 'quests')
-      , firstTour: new CRUD(mongo, schemas.qsnSch, 'firstTourQuestion')
-      , secTour: new CRUD(mongo, schemas.qsnSch, 'secTourQuestion')
-      , thirdTour: new CRUD(mongo, schemas.qsnSch, 'thirdTourQuestion')
-      , options: new CRUD(mongo, schemas.opsSch, 'option')
+      , users: new CRUD(mongo, schemas.users, 'users')
     }
   ;
 

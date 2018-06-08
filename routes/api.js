@@ -25,10 +25,24 @@ router.post('/quests/create', (req, res) => {
 	if (req.body) {
 		db.quests.create(req.body).then(data => {
 			console.log('create quest');
+			res.jsonp({result: 'ok'});
 		});
 	}
 });
 
+router.get('/users/list', (req, res) => {
+	res.type('json');
+	db.users.readAllEntries().then(data => {
+		res.jsonp(data);
+	});
+});
+
+router.post('/users/create', (req, res) => {
+	res.jsonp('json');
+	db.users.create(req.body).then(data => {
+		res.send(data);
+	});
+});
 
 router.post('/login', (req, res) => {
 	res.type('json');   
