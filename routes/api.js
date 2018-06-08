@@ -8,10 +8,16 @@ db.init();
 router.get('/admin', function(req, res, next) { 	
 	db.quests.readAllEntries().then((data) => {
 		console.log(data);
+		res.send({});
 	});
-	res.send({});
 });
 
+router.get('quests/all', (req, res) => {
+	db.quests.readAllEntries().then((data) => {
+		console.log(data);
+		res.send({});
+	});
+});
 
 
 router.post('/login', (req, res) => {
