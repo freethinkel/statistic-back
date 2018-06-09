@@ -30,7 +30,7 @@ router.post('/quests/create', (req, res) => {
 	}
 });
 
-router.post('/quests/update', (req, res) => {
+router.put('/quests/update', (req, res) => {
 	res.type('json');
 	console.log(req.body);
 	if (req.body) {
