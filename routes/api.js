@@ -30,6 +30,17 @@ router.post('/quests/create', (req, res) => {
 	}
 });
 
+router.put('/quests/update', (req, res) => {
+	res.type('json');
+	console.log(req.body);
+	if (req.body) {
+		db.quests.update(req.body.id, req.body.model).then(data => {
+			console.log();
+			res.jsonp(data);
+		});
+	}
+});
+
 router.get('/users/list', (req, res) => {
 	res.type('json');
 	db.users.readAllEntries().then(data => {
