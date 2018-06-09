@@ -19,16 +19,6 @@ router.get('/quests/all', (req, res) => {
 	});
 });
 
-router.post('/quests/create', (req, res) => {
-	res.type('json');   
-	console.log(req.body);
-	if (req.body) {
-		db.quests.create(req.body).then(data => {
-			console.log('create quest');
-			res.jsonp({result: 'ok'});
-		});
-	}
-});
 
 router.put('/quests/update', (req, res) => {
 	res.type('json');
@@ -37,6 +27,18 @@ router.put('/quests/update', (req, res) => {
 		db.quests.update(req.body.id, req.body.model).then(data => {
 			console.log();
 			res.jsonp(data);
+		});
+	}
+});
+
+
+router.post('/quests/create', (req, res) => {
+	res.type('json');   
+	console.log(req.body);
+	if (req.body) {
+		db.quests.create(req.body).then(data => {
+			console.log('create quest');
+			res.jsonp({result: 'ok'});
 		});
 	}
 });
