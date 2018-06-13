@@ -22,6 +22,7 @@ router.get('/quests/all', (req, res) => {
 
 router.put('/quests/update', (req, res) => {
 	res.type('json');
+	console.log(req.headers);
 	console.log(req.body);
 	if (req.body) {
 		db.quests.update(req.body.id, req.body.model).then(data => {
