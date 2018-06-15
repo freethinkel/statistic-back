@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../model/index');
-db.init();
-
 
 /* GET home page. */
 router.get('/admin', function(req, res, next) { 	
@@ -20,20 +18,31 @@ router.get('/quests/all', (req, res) => {
 });
 
 
-router.put('/quests/update', (req, res) => {
+router.put('/quest', (req, res) => {
 	res.type('json');
 	console.log(req.headers);
 	console.log(req.body);
 	if (req.body) {
 		db.quests.update(req.body.id, req.body.model).then(data => {
-			console.log();
+			console.log(data);
 			res.jsonp(data);
 		});
 	}
 });
 
+router.delete('/quest', (req, res) => {
+	console.log(req.body);
+	console.log(req.headers);
+	res.type('json');
+	if (req.body) {
+		db.quests.delete(id).then(data => {
+			console.log(data);
+			res.jsonp(data);
+		});
+	}
+});
 
-router.post('/quests/create', (req, res) => {
+router.post('/quest', (req, res) => {
 	res.type('json');   
 	console.log(req.body);
 	if (req.body) {
