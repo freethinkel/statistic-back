@@ -30,7 +30,7 @@ router.put('/quest', (req, res) => {
 	}
 });
 
-router.delete('/quest', (req, res) => {
+router.post('/quest/delete', (req, res) => {
 	console.log(req.body);
 	console.log(req.headers);
 	res.type('json');
