@@ -35,7 +35,7 @@ router.post('/delete/quest', (req, res) => {
 	console.log(req.headers);
 	res.type('json');
 	if (req.body) {
-		db.quests.delete(id).then(data => {
+		db.quests.delete(req.body.id).then(data => {
 			console.log(data);
 			res.jsonp(data);
 		});
