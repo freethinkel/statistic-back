@@ -42,6 +42,17 @@ router.post('/delete/quest', (req, res) => {
 	}
 });
 
+router.post('/user/delete', (req, res) => {
+	console.log(req.body);
+	res.type('json');
+	if (req.body && req.body.id) {
+		db.users.delete(req.body.id).then(data => {
+			console.log(data);
+			res.jsonp(data);
+		});
+	}
+});
+
 router.post('/quest', (req, res) => {
 	res.type('json');   
 	console.log(req.body);
@@ -61,10 +72,23 @@ router.get('/users/list', (req, res) => {
 });
 
 router.post('/users/create', (req, res) => {
-	res.jsonp('json');
-	db.users.create(req.body).then(data => {
-		res.send(data);
-	});
+	res.type('json');
+	let count = 0;
+	console.log(req.body)
+	db.quests.readAllEntries().then(data => {
+		for (let i = 0; i < data.length; i++) {
+			count += req.body.solutions[i].trim().toLowerCase() === data[i].solution.trim().toLowerCase() ? 1 : 0;
+		}
+		let user = {
+			data: req.body,
+			correctCount: count,
+			totalCount: data.length,
+			date: new Date().getTime() 
+		}
+		db.users.create(user).then(data => {
+			res.send(data);	
+		});
+	})
 });
 
 router.post('/login', (req, res) => {

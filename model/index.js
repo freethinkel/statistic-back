@@ -4,7 +4,8 @@ const
   , dbOpt = {
       uName: '***'
       , pass: '***'
-      , path: 'mongodb://admin:admin123@ds247330.mlab.com:47330/heroku_xd3p58l6'
+      // , path: 'mongodb://admin:admin123@ds247330.mlab.com:47330/heroku_xd3p58l6'
+      , path: 'mongodb://admin:admin123@ds016138.mlab.com:16138/kgeu-statistic'
     }
   , schemas = {
       quests: require('./schemas/quests')(mongo)
